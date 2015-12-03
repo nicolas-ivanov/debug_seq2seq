@@ -1,0 +1,7 @@
+keras==0.2.0
+h5py==2.5.0
+nltk
+six
+scipy==0.15.1
+gensim==0.12.1
+Seq2seq==0.0.1
