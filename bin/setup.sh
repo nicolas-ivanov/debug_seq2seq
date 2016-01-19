@@ -2,7 +2,6 @@
 
 # create directories to store results locally
 dir='/var/lib/try_seq2seq'
-sudo mkdir -p $dir'/corpora_raw/'
 sudo mkdir -p $dir'/corpora_processed/'
 sudo mkdir -p $dir'/words_index/'
 sudo mkdir -p $dir'/w2v_models/'

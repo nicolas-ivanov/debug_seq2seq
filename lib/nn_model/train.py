@@ -67,9 +67,7 @@ def get_training_batch(w2v_model, tokenized_dialog, token_to_index):
 
 def save_model(nn_model):
     model_full_path = os.path.join(DATA_PATH, 'nn_models', NN_MODEL_PATH)
-
-    ## save doesn't work so far :(
-    # nn_model.save_weights(model_full_path, overwrite=True)
+    nn_model.save_weights(model_full_path, overwrite=True)
 
 
 def train_model(nn_model, w2v_model, tokenized_dialog_lines, index_to_token):
