@@ -30,6 +30,7 @@ def get_nn_model(token_dict_size):
         depth=1
     )
 
+
     model.add(seq2seq)
     model.compile(loss='mse', optimizer='adam')
 

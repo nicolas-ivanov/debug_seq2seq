@@ -1,7 +1,9 @@
 import time
 import os
-import numpy as np
+import copy
 from collections import namedtuple
+
+import numpy as np
 
 from utils.utils import get_logger
 from lib.w2v_model.vectorizer import get_token_vector
@@ -65,7 +67,7 @@ def get_training_batch(w2v_model, tokenized_dialog, token_to_index):
 
 def save_model(nn_model):
     model_full_path = os.path.join(DATA_PATH, 'nn_models', NN_MODEL_PATH)
-    
+
     ## save doesn't work so far :(
     # nn_model.save_weights(model_full_path, overwrite=True)
 
@@ -79,8 +81,9 @@ def train_model(nn_model, w2v_model, tokenized_dialog_lines, index_to_token):
 
     for full_data_pass_num in xrange(1, FULL_LEARN_ITER_NUM + 1):
         _logger.info('Full-data-pass iteration num: ' + str(full_data_pass_num))
+        dialog_lines_for_train = copy.copy(tokenized_dialog_lines)
 
-        for X_train, Y_train in get_training_batch(w2v_model, tokenized_dialog_lines, token_to_index):
+        for X_train, Y_train in get_training_batch(w2v_model, dialog_lines_for_train, token_to_index):
             nn_model.fit(X_train, Y_train, batch_size=TRAIN_BATCH_SIZE, nb_epoch=1, show_accuracy=True, verbose=1)
 
             if sents_batch_iteration % TEST_PREDICTIONS_FREQUENCY == 0:

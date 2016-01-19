@@ -1,4 +1,4 @@
-keras==0.2.0
+keras==0.3.0
 h5py==2.5.0
 nltk
 six
