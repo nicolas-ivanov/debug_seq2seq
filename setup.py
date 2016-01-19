@@ -9,7 +9,7 @@ install_requires = [
 
 setup(
       name='Seq2seq',
-      version='0.0.1',
+      version='0.0.2',
       description='Sequence to Sequence Learning with Keras',
       author='Fariz Rahman',
       author_email='farizrahman4u@gmail.com',
