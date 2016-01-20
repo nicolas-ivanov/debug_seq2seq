@@ -1,7 +1,7 @@
 import os.path
 
 from keras.models import Sequential
-from seq2seq.models import SimpleSeq2seq
+from seq2seq.models import AttentionSeq2seq
 
 from configs.config import TOKEN_REPRESENTATION_SIZE, HIDDEN_LAYER_DIMENSION, SAMPLES_BATCH_SIZE, \
     INPUT_SEQUENCE_LENGTH, ANSWER_MAX_TOKEN_LENGTH, NN_MODEL_PATH
@@ -20,16 +20,17 @@ def get_nn_model(token_dict_size):
     _logger.info('Batch size: %s' % SAMPLES_BATCH_SIZE)
 
     model = Sequential()
-    seq2seq = SimpleSeq2seq(
+    seq2seq = AttentionSeq2seq(
         input_dim=TOKEN_REPRESENTATION_SIZE,
+        input_length=INPUT_SEQUENCE_LENGTH,
         hidden_dim=HIDDEN_LAYER_DIMENSION,
         output_dim=token_dict_size,
         output_length=ANSWER_MAX_TOKEN_LENGTH,
-        depth=1
+        depth=2
     )
 
     model.add(seq2seq)
-    model.compile(loss='mse', optimizer='adam')
+    model.compile(loss='mse', optimizer='rmsprop')
 
     # use previously saved model if it exists
     _logger.info('Looking for a model %s' % NN_MODEL_PATH)
