@@ -53,15 +53,17 @@ However you need to dig into seq2seq code to do that.
 
 * The second problem relates to word sampling: even if you manage to solve the aforementioned issue, in case you stick to using argmax() for picking the most probable word every time stamps, the answers gonna be too simple and not interesting, like:
 
-     are you a human?			-- no .
-     are you a robot or human?	-- no .
-     are you a robot?			-- no .
-     are you better than siri?  		-- yes .
-     are you here ?				-- yes .
-     are you human?			-- no .
-     are you really better than siri?	-- yes .
-     are you there 				-- you ' re not going to be
-     are you there?!?!			-- yes .
+```
+are you a human?			-- no .
+are you a robot or human?	-- no .
+are you a robot?			-- no .
+are you better than siri?  		-- yes .
+are you here ?				-- yes .
+are you human?			-- no .
+are you really better than siri?	-- yes .
+are you there 				-- you ' re not going to be
+are you there?!?!			-- yes .
+```
 
 Not to mislead you: these results were achieved on a different seq2seq architecture, based on tensorflow.
 
