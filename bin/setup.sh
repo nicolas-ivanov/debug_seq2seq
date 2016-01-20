@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 # build and install seq2seq package
 cd $dir
-git clone git@github.com:farizrahman4u/seq2seq.git
+git clone https://github.com/farizrahman4u/seq2seq.git
 cd seq2seq
 sudo python setup.py build
 sudo python setup.py install
