@@ -76,7 +76,9 @@ def train_model(nn_model, w2v_model, tokenized_dialog_lines, index_to_token):
     start_time = time.time()
     sents_batch_iteration = 1
 
-    for full_data_pass_num in range(1, FULL_LEARN_ITER_NUM + 1):
+    if sys.version_info > (2,):
+        xrange = range
+    for full_data_pass_num in xrange(1, FULL_LEARN_ITER_NUM + 1):
         _logger.info('Full-data-pass iteration num: ' + str(full_data_pass_num))
         dialog_lines_for_train = copy.copy(tokenized_dialog_lines)
 
