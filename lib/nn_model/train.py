@@ -66,8 +66,7 @@ def get_training_batch(w2v_model, tokenized_dialog, token_to_index):
 
 
 def save_model(nn_model):
-    model_full_path = os.path.join(DATA_PATH, 'nn_models', NN_MODEL_PATH)
-    nn_model.save_weights(model_full_path, overwrite=True)
+    nn_model.save_weights(NN_MODEL_PATH, overwrite=True)
 
 
 def train_model(nn_model, w2v_model, tokenized_dialog_lines, index_to_token):
@@ -77,6 +76,8 @@ def train_model(nn_model, w2v_model, tokenized_dialog_lines, index_to_token):
     start_time = time.time()
     sents_batch_iteration = 1
 
+    if sys.version_info > (2,):
+        xrange = range
     for full_data_pass_num in xrange(1, FULL_LEARN_ITER_NUM + 1):
         _logger.info('Full-data-pass iteration num: ' + str(full_data_pass_num))
         dialog_lines_for_train = copy.copy(tokenized_dialog_lines)
