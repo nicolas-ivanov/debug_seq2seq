@@ -84,7 +84,7 @@ def save_index_to_tokens(index_to_token, token_index_path):
 def get_index_to_token(token_index_path):
     with codecs.open(token_index_path, 'r', 'utf-8') as token_index_fh:
         index_to_token = json.load(token_index_fh)
-        index_to_token = {int(k): v for k, v in index_to_token.iteritems()}
+        index_to_token = {int(k): v for k, v in index_to_token.items()}
 
     return index_to_token
 
