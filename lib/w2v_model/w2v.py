@@ -16,8 +16,12 @@ def _train_model(tokenized_lines, params):
 
     tokenized_lines_for_voc, tokenized_lines_for_train = tee(tokenized_lines)
 
-    model = Word2Vec(window=int(params['win_size']), min_count=int(params['min_w_num']), size=int(params['vect_size']),
+    model = Word2Vec(window=int(params['win_size']),
+                     min_count=int(params['min_w_num']),
+                     max_vocab_size=int(params['vocab_max_size']),
+                     size=int(params['vect_size']),
                      workers=int(params['workers_num']))
+
     model.build_vocab(tokenized_lines_for_voc)
     model.train(tokenized_lines_for_train)
 
