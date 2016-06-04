@@ -1,6 +1,8 @@
 # debug seq2seq
 Make [seq2seq for keras](https://github.com/farizrahman4u/seq2seq) work.
 
+And also give a try to some other implementations of [seq2seq](https://github.com/nicolas-ivanov/nn_chatbot_links).
+
 The code includes:
 
 * small dataset of movie scripts to train your models on
