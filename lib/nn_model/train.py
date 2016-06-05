@@ -80,8 +80,7 @@ def train_model(nn_model, w2v_model, tokenized_dialog_lines, index_to_token):
         dialog_lines_for_train = copy.copy(tokenized_dialog_lines)
 
         for X_train, Y_train in get_training_batch(w2v_model, dialog_lines_for_train, token_to_index):
-            # nn_model.fit(X_train, Y_train, batch_size=TRAIN_BATCH_SIZE, nb_epoch=1, show_accuracy=True, verbose=1)
-            nn_model.fit(X_train, X_train, batch_size=TRAIN_BATCH_SIZE, nb_epoch=1, show_accuracy=True, verbose=1)
+            nn_model.fit(X_train, Y_train, batch_size=TRAIN_BATCH_SIZE, nb_epoch=1, show_accuracy=True, verbose=1)
 
             if sents_batch_iteration % TEST_PREDICTIONS_FREQUENCY == 0:
                 log_predictions(test_sentences, nn_model, w2v_model, index_to_token)
