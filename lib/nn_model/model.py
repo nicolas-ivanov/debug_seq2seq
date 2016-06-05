@@ -30,7 +30,7 @@ def get_nn_model(token_dict_size):
     )
 
     model.add(seq2seq)
-    model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
+    model.compile(loss='categorical_crossentropy', optimizer='adadelta')
 
     model.save_weights(NN_MODEL_PATH)
 

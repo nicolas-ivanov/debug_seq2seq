@@ -9,12 +9,12 @@ sudo mkdir -p $dir'/nn_models/'
 sudo mkdir -p $dir'/results/'
 sudo chown -R "$USER" $dir
 
-# install required packages
-pip install -r requirements.txt
-
 # build and install seq2seq package
 cd $dir
 git clone https://github.com/farizrahman4u/seq2seq.git
 cd seq2seq
 sudo python setup.py build
 sudo python setup.py install
+
+# install required packages
+#pip install -r requirements.txt

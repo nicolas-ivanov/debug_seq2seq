@@ -8,18 +8,18 @@ PROCESSED_CORPORA_DIR = 'corpora_processed'
 W2V_MODELS_DIR = 'w2v_models'
 
 # set paths of training and testing sets
-CORPUS_NAME = 'movie_lines_cleaned'
+CORPUS_NAME = 'movie_lines_cleaned_10k'
 CORPUS_PATH = os.path.join('data/train', CORPUS_NAME + '.txt')
 TEST_DATASET_PATH = os.path.join('data', 'test', 'test_set.txt')
 
 # set word2vec params
-TOKEN_REPRESENTATION_SIZE = 256
-VOCAB_MAX_SIZE = 20000
+TOKEN_REPRESENTATION_SIZE = 64
+VOCAB_MAX_SIZE = 5000
 TOKEN_MIN_FREQUENCY = 1
 
 #set seq2seq params
 HIDDEN_LAYER_DIMENSION = 512
-INPUT_SEQUENCE_LENGTH = 16
+INPUT_SEQUENCE_LENGTH = 6
 ANSWER_MAX_TOKEN_LENGTH = 6
 
 # set training params

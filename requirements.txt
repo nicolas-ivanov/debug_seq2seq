@@ -1,5 +1,6 @@
 Keras==0.3.1
 h5py==2.5.0
+numpy
 nltk
 six
 scipy==0.15.1
