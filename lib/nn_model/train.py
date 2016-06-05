@@ -5,7 +5,7 @@ from collections import namedtuple
 import numpy as np
 
 from configs.config import INPUT_SEQUENCE_LENGTH, ANSWER_MAX_TOKEN_LENGTH, TOKEN_REPRESENTATION_SIZE, SAMPLES_BATCH_SIZE, \
-    TEST_PREDICTIONS_FREQUENCY, TRAIN_BATCH_SIZE, TEST_DATASET_PATH, NN_MODEL_PATH, FULL_LEARN_ITER_NUM
+    TEST_PREDICTIONS_FREQUENCY, TRAIN_BATCH_SIZE, TEST_DATASET_PATH, NN_MODEL_PATH, FULL_LEARN_ITER_NUM, TEST_SENTS_NUM
 from lib.nn_model.predict import predict_sentence
 from lib.w2v_model.vectorizer import get_token_vector
 from utils.utils import get_logger
@@ -26,7 +26,7 @@ def get_test_senteces(file_path):
         test_sentences = test_data_fh.readlines()
         test_sentences = [s.strip() for s in test_sentences]
 
-    return test_sentences
+    return test_sentences[:TEST_SENTS_NUM]
 
 
 def _batch(tokenized_dialog_lines, batch_size=1):
