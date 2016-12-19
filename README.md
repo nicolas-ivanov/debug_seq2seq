@@ -1,4 +1,7 @@
 # debug seq2seq
+
+> *Note: the repository is not maintained. Feel free to PM me if you'd like to take up the maintainance.*
+
 Make [seq2seq for keras](https://github.com/farizrahman4u/seq2seq) work. And also give a try to some other implementations of [seq2seq](https://github.com/nicolas-ivanov/seq2seq_chatbot_links).
 
 The code includes:
